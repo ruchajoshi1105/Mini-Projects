@@ -1,0 +1,17 @@
+## 📋 Requirements
+
+### Software Requirements
+- Operating System: Windows
+- Code Editor: Visual Studio Code
+- Web Browser: Google Chrome or Microsoft Edge
+- Technologies: HTML, CSS, JavaScript
+
+### Optional Requirements
+- Live Server VS Code extension
+- Internet connection for live market data
+- Data.gov.in API key for fetching live agricultural prices
+
+### Hardware Requirements
+- Computer or laptop
+- Minimum 4 GB RAM recommended
+-
