@@ -1,819 +1,1890 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MandiMate | Smart Agriculture</title>
+    <!-- Sets character encoding and mobile-friendly layout -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-/* Define common colors used throughout the website */
-:root {
-  --green: #176b45;
-  --dark: #103d2b;
-  --light: #edf8f0;
-  --text: #18352b;
-  --muted: #65776e;
-  --border: #dce9df;
-}
+    <!-- Website title shown in the browser tab -->
+    <title>MandiMate | Smart Agriculture</title>
 
-/* Apply box-sizing to all elements */
-* {
-  box-sizing: border-box;
-}
+    <style>
+        /* ------------------------------
+           1. GLOBAL STYLES AND COLORS
+        ------------------------------ */
 
-/* Style the main body of the website */
-body {
-  margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: #f5f9f6;
-  color: var(--text);
-}
+        :root {
+            --green: #176b45;
+            --dark: #103d2b;
+            --light: #edf8f0;
+            --text: #18352b;
+            --muted: #65776e;
+            --border: #dce9df;
+        }
 
-/* Style the header section */
-header {
-  background: linear-gradient(120deg, #103d2b, #19704a);
-  color: white;
-  padding: 23px 6%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-  flex-wrap: wrap;
-}
+        /* Includes padding and borders in element dimensions */
+        * {
+            box-sizing: border-box;
+        }
 
-/* Arrange the logo and brand information */
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
+        /* Main website background and default text */
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f5f9f6;
+            color: var(--text);
+        }
 
-/* Set the logo size */
-.logo {
-  font-size: 43px;
-}
+        /* ------------------------------
+           2. HEADER AND NAVIGATION
+        ------------------------------ */
 
-/* Style the website title */
-.brand h1 {
-  margin: 0;
-  font-size: 29px;
-}
+        header {
+            background: linear-gradient(120deg, #103d2b, #19704a);
+            color: #fff;
+            padding: 23px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
 
-/* Highlight the Mate part of the title */
-.brand h1 span {
-  color: #a9e6a9;
-}
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
-/* Style the brand description */
-.brand p {
-  margin: 5px 0 0;
-  color: #d4e7d9;
-  font-size: 13px;
-}
+        .logo {
+            font-size: 43px;
+        }
 
-/* Arrange navigation links horizontally */
-nav {
-  display: flex;
-  gap: 20px;
-}
+        .brand h1 {
+            margin: 0;
+            font-size: 29px;
+        }
 
-/* Style navigation links */
-nav a {
-  color: white;
-  text-decoration: none;
-  font-size: 14px;
-}
+        .brand h1 span {
+            color: #a9e6a9;
+        }
 
-/* Style the hero section */
-.hero {
-  background: linear-gradient(115deg, #e7f6e9, #ffffff 65%, #d9f0dc);
-  padding: 38px 6% 32px;
-}
+        .brand p {
+            margin: 5px 0 0;
+            color: #d4e7d9;
+            font-size: 13px;
+        }
 
-/* Style the main heading */
-.hero h2 {
-  font-size: clamp(25px, 4vw, 36px);
-  margin: 0 0 10px;
-  color: var(--dark);
-}
+        /* Navigation links */
+        nav {
+            display: flex;
+            gap: 20px;
+        }
 
-/* Style the hero description */
-.hero p {
-  color: var(--muted);
-  margin: 0;
-  line-height: 1.7;
-}
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+        }
 
-/* Set the main content width and spacing */
-main {
-  max-width: 1450px;
-  margin: auto;
-  padding: 25px 5%;
-}
+        /* ------------------------------
+           3. HERO SECTION
+        ------------------------------ */
 
-/* Create reusable card designs */
-.card {
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 15px;
-  padding: 23px;
-  margin-bottom: 22px;
-  box-shadow: 0 4px 15px #143c2010;
-}
+        .hero {
+            background: linear-gradient(
+                115deg,
+                #e7f6e9,
+                #fff 65%,
+                #d9f0dc
+            );
+            padding: 38px 6% 32px;
+        }
 
-/* Style card headings */
-.card h3 {
-  margin: 0 0 19px;
-  font-size: 19px;
-}
+        .hero h2 {
+            font-size: clamp(25px, 4vw, 36px);
+            margin: 0 0 10px;
+            color: var(--dark);
+        }
 
-/* Arrange form fields in three columns */
-.form-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-}
+        .hero p {
+            color: var(--muted);
+            margin: 0;
+            line-height: 1.7;
+        }
 
-/* Style form labels */
-label {
-  display: block;
-  font-size: 13px;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
+        /* Main content container */
+        main {
+            max-width: 1450px;
+            margin: auto;
+            padding: 25px 5%;
+        }
 
-/* Style input fields and dropdown menus */
-input, select {
-  width: 100%;
-  padding: 13px;
-  background: white;
-  border: 1px solid #cbdcd0;
-  border-radius: 9px;
-  font-size: 15px;
-  color: var(--text);
-}
+        /* Reusable white card design */
+        .card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 23px;
+            margin-bottom: 22px;
+            box-shadow: 0 4px 15px #143c2010;
+        }
 
-/* Highlight fields when selected */
-input:focus, select:focus {
-  outline: 2px solid #9dd6ad;
-  border-color: var(--green);
-}
+        .card h3 {
+            margin: 0 0 19px;
+            font-size: 19px;
+        }
 
-/* Style all buttons */
-button {
-  border: 0;
-  background: var(--green);
-  color: white;
-  font-weight: 600;
-  font-size: 15px;
-  padding: 14px 20px;
-  border-radius: 9px;
-  cursor: pointer;
-  transition: 0.2s;
-}
+        /* ------------------------------
+           4. INPUT FORM
+        ------------------------------ */
 
-/* Add a hover effect to buttons */
-button:hover {
-  background: #0f5032;
-  transform: translateY(-1px);
-}
+        /* Displays form fields in three columns */
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
 
-/* Make the search button occupy the full width */
-.search-button {
-  margin-top: 20px;
-  width: 100%;
-}
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
 
-/* Arrange the summary statistics in four columns */
-.stats {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
-  margin-bottom: 22px;
-}
+        input,
+        select {
+            width: 100%;
+            padding: 13px;
+            background: #fff;
+            border: 1px solid #cbdcd0;
+            border-radius: 9px;
+            font-size: 15px;
+            color: var(--text);
+        }
 
-/* Style individual statistics cards */
-.stat {
-  padding: 20px;
-  border-radius: 13px;
-  border: 1px solid var(--border);
-  background: white;
-}
+        /* Highlights the field currently being edited */
+        input:focus,
+        select:focus {
+            outline: 2px solid #9dd6ad;
+            border-color: var(--green);
+        }
 
-/* Style statistic labels */
-.stat small {
-  color: var(--muted);
-  font-size: 12px;
-}
+        /* General button design */
+        button {
+            border: 0;
+            background: var(--green);
+            color: #fff;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 14px 20px;
+            border-radius: 9px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
 
-/* Style statistic values */
-.stat h3 {
-  font-size: 23px;
-  margin: 12px 0 6px;
-  overflow-wrap: anywhere;
-}
+        button:hover {
+            background: #0f5032;
+            transform: translateY(-1px);
+        }
 
-/* Style statistic descriptions */
-.stat p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 12px;
-}
+        /* Makes the search button fill the form width */
+        .search-button {
+            margin-top: 20px;
+            width: 100%;
+        }
 
-/* Apply different background colors to statistics cards */
-.stat.green { background: #eaf7ed; }
-.stat.blue { background: #edf5ff; }
-.stat.orange { background: #fff4e9; }
-.stat.purple { background: #f5efff; }
+        /* ------------------------------
+           5. SUMMARY STATISTICS
+        ------------------------------ */
 
-/* Arrange the market table and chart */
-.results-grid {
-  display: grid;
-  grid-template-columns: 1.25fr 1fr;
-  gap: 20px;
-  align-items: start;
-}
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            margin-bottom: 22px;
+        }
 
-/* Allow horizontal scrolling for wide tables */
-.table-wrap {
-  overflow-x: auto;
-}
+        .stat {
+            padding: 20px;
+            border-radius: 13px;
+            border: 1px solid var(--border);
+            background: #fff;
+        }
 
-/* Style the market comparison table */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 13px;
-  white-space: nowrap;
-}
+        .stat small {
+            color: var(--muted);
+            font-size: 12px;
+        }
 
-/* Style table cells */
-th, td {
-  text-align: left;
-  padding: 13px 10px;
-  border-bottom: 1px solid #e7eee8;
-}
+        .stat h3 {
+            font-size: 23px;
+            margin: 12px 0 6px;
+            overflow-wrap: anywhere;
+        }
 
-/* Highlight table headings */
-th {
-  background: #f0f7f1;
-  font-size: 12px;
-}
+        .stat p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 12px;
+        }
 
-/* Highlight the best-performing mandi row */
-tr.best {
-  background: #e7f7ec;
-  font-weight: 600;
-}
+        /* Different colors help users distinguish statistics */
+        .stat.green {
+            background: #eaf7ed;
+        }
 
-/* Create a badge for the best mandi */
-.pill {
-  display: inline-block;
-  padding: 4px 8px;
-  margin-left: 5px;
-  border-radius: 20px;
-  background: #d2f0d9;
-  color: #176b45;
-  font-size: 10px;
-}
+        .stat.blue {
+            background: #edf5ff;
+        }
 
-/* Arrange chart bars vertically */
-.chart {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
+        .stat.orange {
+            background: #fff4e9;
+        }
 
-/* Arrange each chart row */
-.bar-row {
-  display: grid;
-  grid-template-columns: 95px 1fr 90px;
-  gap: 9px;
-  align-items: center;
-  font-size: 12px;
-}
+        .stat.purple {
+            background: #f5efff;
+        }
 
-/* Style the background track of each bar */
-.bar-track {
-  height: 22px;
-  background: #edf2ee;
-  border-radius: 5px;
-  overflow: hidden;
-}
+        .stat.gold {
+            background: #fff8dc;
+        }
 
-/* Style the chart bars */
-.bar {
-  height: 100%;
-  background: linear-gradient(90deg, #249568, #69c68a);
-  border-radius: 5px;
-  transition: width 0.4s;
-}
+        /* ------------------------------
+           6. MARKET TABLE AND CHART
+        ------------------------------ */
 
-/* Use a different color for the best mandi bar */
-.bar-row.best-bar .bar {
-  background: linear-gradient(90deg, #df9a28, #f6c75e);
-}
+        .results-grid {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr;
+            gap: 20px;
+            align-items: start;
+        }
 
-/* Align the net return values to the right */
-.bar-value {
-  text-align: right;
-  font-weight: 600;
-}
+        /* Allows the wide table to scroll on small screens */
+        .table-wrap {
+            overflow-x: auto;
+        }
 
-/* Style the dispatch recommendation section */
-.recommendation {
-  background: linear-gradient(120deg, #e7f7eb, #ffffff);
-  border: 1px solid #bfe4ca;
-  border-radius: 15px;
-  padding: 25px;
-  margin-top: 22px;
-}
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            white-space: nowrap;
+        }
 
-/* Style the recommendation heading */
-.recommendation h3 {
-  margin-top: 0;
-  color: var(--green);
-}
+        th,
+        td {
+            text-align: left;
+            padding: 13px 10px;
+            border-bottom: 1px solid #e7eee8;
+        }
 
-/* Add spacing below the recommendation title */
-.recommendation h2 {
-  margin-bottom: 8px;
-}
+        th {
+            background: #f0f7f1;
+            font-size: 12px;
+        }
 
-/* Style recommendation descriptions */
-.recommendation p {
-  color: #52675a;
-  line-height: 1.7;
-}
+        /* Highlights the recommended market */
+        tr.best {
+            background: #e7f7ec;
+            font-weight: 600;
+        }
 
-/* Highlight important recommendation text */
-.recommendation strong {
-  color: var(--dark);
-}
+        /* Label used for the best market */
+        .pill {
+            display: inline-block;
+            padding: 4px 8px;
+            margin-left: 5px;
+            border-radius: 20px;
+            background: #d2f0d9;
+            color: #176b45;
+            font-size: 10px;
+        }
 
-/* Style informational notes */
-.note {
-  font-size: 12px;
-  color: var(--muted);
-  line-height: 1.6;
-  margin: 18px 0;
-}
+        /* Horizontal bar chart layout */
+        .chart {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
 
-/* Style the website footer */
-footer {
-  text-align: center;
-  padding: 22px;
-  background: var(--dark);
-  color: #d8e8dc;
-  font-size: 13px;
-}
+        .bar-row {
+            display: grid;
+            grid-template-columns: 95px 1fr 90px;
+            gap: 9px;
+            align-items: center;
+            font-size: 12px;
+        }
 
-/* Adjust the layout for tablets and medium screens */
-@media (max-width: 900px) {
-  .stats {
-    grid-template-columns: repeat(2, 1fr);
-  }
+        .bar-track {
+            height: 22px;
+            background: #edf2ee;
+            border-radius: 5px;
+            overflow: hidden;
+        }
 
-  .results-grid {
-    grid-template-columns: 1fr;
-  }
-}
+        .bar {
+            height: 100%;
+            background: linear-gradient(90deg, #249568, #69c68a);
+            border-radius: 5px;
+            transition: width 0.4s;
+        }
 
-/* Adjust the layout for mobile screens */
-@media (max-width: 600px) {
-  header {
-    padding: 18px 5%;
-  }
+        /* Uses a gold color for the recommended option */
+        .bar-row.best-bar .bar {
+            background: linear-gradient(90deg, #df9a28, #f6c75e);
+        }
 
-  .brand h1 {
-    font-size: 24px;
-  }
+        .bar-value {
+            text-align: right;
+            font-weight: 600;
+        }
 
-  nav {
-    width: 100%;
-    gap: 18px;
-  }
+        /* ------------------------------
+           7. RECOMMENDATION AND FOOTER
+        ------------------------------ */
 
-  .hero {
-    padding: 28px 5%;
-  }
+        .recommendation {
+            background: linear-gradient(120deg, #e7f7eb, #fff);
+            border: 1px solid #bfe4ca;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 22px;
+        }
 
-  main {
-    padding: 18px 4%;
-  }
+        .recommendation h3 {
+            margin-top: 0;
+            color: var(--green);
+        }
 
-  /* Display form fields in a single column */
-  .form-grid {
-    grid-template-columns: 1fr;
-  }
+        .recommendation h2 {
+            margin-bottom: 8px;
+        }
 
-  .stats {
-    gap: 10px;
-  }
+        .recommendation p {
+            color: #52675a;
+            line-height: 1.7;
+        }
 
-  .stat {
-    padding: 14px;
-  }
+        /* Notes and API status messages */
+        .note {
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.6;
+            margin: 18px 0;
+        }
 
-  .stat h3 {
-    font-size: 19px;
-  }
+        .warn {
+            color: #a8402c;
+            font-size: 12px;
+            margin: 6px 0;
+            padding-left: 18px;
+        }
 
-  .card {
-    padding: 16px;
-  }
+        .legend {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            font-size: 12px;
+            margin-top: 8px;
+        }
 
-  /* Reduce chart column sizes for mobile screens */
-  .bar-row {
-    grid-template-columns: 78px 1fr 77px;
-    gap: 6px;
-  }
-}
-</style>
+        .legend i {
+            display: inline-block;
+            width: 11px;
+            height: 11px;
+            border-radius: 2px;
+            margin-right: 5px;
+        }
+
+        svg text {
+            font: 11px "Segoe UI", Arial;
+            fill: #65776e;
+        }
+
+        footer {
+            text-align: center;
+            padding: 22px;
+            background: var(--dark);
+            color: #d8e8dc;
+            font-size: 13px;
+        }
+
+        /* ------------------------------
+           8. RESPONSIVE DESIGN
+           Adjusts layout for tablets and phones
+        ------------------------------ */
+
+        @media (max-width: 900px) {
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 18px 5%;
+            }
+
+            .brand h1 {
+                font-size: 24px;
+            }
+
+            nav {
+                width: 100%;
+                gap: 18px;
+            }
+
+            .hero {
+                padding: 28px 5%;
+            }
+
+            main {
+                padding: 18px 4%;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                gap: 10px;
+            }
+
+            .stat {
+                padding: 14px;
+            }
+
+            .stat h3 {
+                font-size: 19px;
+            }
+
+            .card {
+                padding: 16px;
+            }
+
+            .bar-row {
+                grid-template-columns: 78px 1fr 77px;
+                gap: 6px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- Header: displays the logo, project name, and navigation links -->
-<header>
-  <div class="brand">
-    <div class="logo">🌱</div>
-    <div>
-      <h1>Mandi<span>Mate</span></h1>
-      <p>Smart Agriculture Market Intelligence &amp; Dispatch Optimiser</p>
-    </div>
-  </div>
+    <!-- ==============================
+         HEADER AND NAVIGATION LINKS
+    =============================== -->
 
-  <!-- Navigation links to different sections of the page -->
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#markets">Markets</a>
-    <a href="#recommendation">Recommendation</a>
-  </nav>
-</header>
+    <header>
+        <div class="brand">
+            <div class="logo">🌱</div>
 
-<!-- Hero section introduces the purpose of MandiMate -->
-<section class="hero" id="home">
-  <h2>Find the best mandi for your crops 🌾</h2>
-  <p>
-    Compare mandi prices, calculate transportation costs,
-    and discover where your produce could earn more.
-  </p>
-</section>
+            <div>
+                <h1>Mandi<span>Mate</span></h1>
+                <p>
+                    Smart Agriculture Market Intelligence
+                    &amp; Dispatch Optimiser
+                </p>
+            </div>
+        </div>
 
-<main>
+        <!-- Clicking these links moves to the corresponding sections -->
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#markets">Markets</a>
+            <a href="#recommendation">Recommendation</a>
+        </nav>
+    </header>
 
-  <!-- Form section: accepts crop and expense details from the user -->
-  <section class="card">
-    <h3>🚜 Enter Your Crop Details</h3>
+    <!-- Introductory section -->
+    <section class="hero" id="home">
+        <h2>Find the best mandi for your crops 🌾</h2>
 
-    <div class="form-grid">
-      <div>
-        <label for="crop">Select your crop</label>
-
-        <!-- Dropdown menu for selecting the crop -->
-        <select id="crop">
-          <option>Tomato</option>
-          <option>Onion</option>
-          <option>Potato</option>
-          <option>Wheat</option>
-        </select>
-      </div>
-
-      <div>
-        <label for="quantity">Quantity (quintals)</label>
-
-        <!-- Input field for crop quantity -->
-        <input id="quantity" type="number"
-          min="1" max="10000" value="10" step="1">
-      </div>
-
-      <div>
-        <label for="otherCost">Other costs (₹ per quintal)</label>
-
-        <!-- Input field for additional cost per quintal -->
-        <input id="otherCost" type="number"
-          min="0" value="100" step="10">
-      </div>
-    </div>
-
-    <!-- Button starts the mandi comparison calculation -->
-    <button class="search-button" onclick="calculate()">
-      🔍 Find Best Mandi
-    </button>
-
-    <!-- Displays API connection and demo status messages -->
-    <p id="apiStatus" class="note" role="status" aria-live="polite">
-      Demo mode: sample prices are shown until a Data.gov.in API key is added.
-    </p>
-  </section>
-
-  <!-- Summary section: displays revenue, expenses, and the best mandi -->
-  <section class="stats">
-    <div class="stat green">
-      <small>💰 Best Estimated Revenue</small>
-      <h3 id="revenue">₹0</h3>
-      <p>Before expenses</p>
-    </div>
-
-    <div class="stat orange">
-      <small>🚚 Transport Cost</small>
-      <h3 id="transport">₹0</h3>
-      <p>Estimated delivery cost</p>
-    </div>
-
-    <div class="stat blue">
-      <small>📦 Other Costs</small>
-      <h3 id="expenses">₹0</h3>
-      <p>For your selected quantity</p>
-    </div>
-
-    <div class="stat purple">
-      <small>🏆 Best Mandi</small>
-      <h3 id="bestMandi">--</h3>
-      <p>Highest estimated net return</p>
-    </div>
-  </section>
-
-  <!-- Results section contains the market table and comparison chart -->
-  <div class="results-grid">
-
-    <!-- Table displays mandi prices and estimated net returns -->
-    <section class="card" id="markets">
-      <h3>📊 Market Comparison</h3>
-
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Mandi</th>
-              <th>Price / Quintal</th>
-              <th>Transport</th>
-              <th>Other Costs</th>
-              <th>Net Return</th>
-            </tr>
-          </thead>
-
-          <!-- JavaScript inserts the market rows here -->
-          <tbody id="marketRows"></tbody>
-        </table>
-      </div>
+        <p>
+            Forecast prices for the next 7 days, count freight,
+            fuel and spoilage, and see whether to sell now,
+            wait, or ship to another district.
+        </p>
     </section>
 
-    <!-- Chart visually compares estimated net returns -->
-    <section class="card">
-      <h3>📈 Net Return Comparison</h3>
+    <main>
 
-      <!-- JavaScript generates the comparison bars here -->
-      <div class="chart" id="chart"></div>
-    </section>
+        <!-- ==============================
+             CROP AND TRANSPORT INPUT FORM
+        =============================== -->
 
-  </div>
+        <section class="card">
+            <h3>🚜 Enter Your Crop Details</h3>
 
-  <!-- Recommendation section displays the best mandi -->
-  <section class="recommendation" id="recommendation">
-    <h3>🎯 Dispatch Recommendation</h3>
-    <h2 id="recommendationTitle">Calculating...</h2>
-    <p id="recommendationText"></p>
-    <p id="dispatchText"></p>
+            <div class="form-grid">
 
-    <!-- Print the report using the browser's print feature -->
-    <button onclick="window.print()">🖨️ Print Report</button>
-  </section>
+                <!-- Crop selection -->
+                <div>
+                    <label for="crop">Select your crop</label>
+                    <select id="crop">
+                        <option>Tomato</option>
+                        <option>Onion</option>
+                        <option>Potato</option>
+                        <option>Wheat</option>
+                    </select>
+                </div>
 
-  <!-- Explain the limitations of the demonstration data -->
-  <p class="note">
-    ⚠️ Demo notice: The market prices and transport estimates used
-    by this prototype are illustrative sample data, not live mandi
-    prices. Verify actual prices and transport quotations before
-    making selling or dispatch decisions. The current version
-    recommends one destination; it does not yet optimise multiple
-    trucks or split loads.
-  </p>
+                <!-- Quantity to sell -->
+                <div>
+                    <label for="quantity">Quantity (quintals)</label>
+                    <input
+                        id="quantity"
+                        type="number"
+                        min="1"
+                        max="10000"
+                        value="10"
+                        step="1"
+                    >
+                </div>
 
-</main>
+                <!-- Additional cost per quintal -->
+                <div>
+                    <label for="otherCost">Other costs (₹ per quintal)</label>
+                    <input
+                        id="otherCost"
+                        type="number"
+                        min="0"
+                        value="100"
+                        step="10"
+                    >
+                </div>
 
-<!-- Footer displays the project name and purpose -->
-<footer>
-  🌱 MandiMate — Helping Farmers Make Smarter Market Decisions
-  <br><br>
-  Built for a hackathon | Better Decisions, Better Returns
-</footer>
+                <!-- Starting mandi for distance calculations -->
+                <div>
+                    <label for="homeMarket">Your nearest mandi</label>
+                    <select id="homeMarket"></select>
+                </div>
 
-<script>
-// Official Government of India Open Government Data API.
-// Get a free API key from https://www.data.gov.in/ and paste it below.
-// Resource ID for daily mandi price data.
-const DATA_GOV_API_KEY = "PASTE_YOUR_DATA_GOV_IN_API_KEY_HERE";
-const DATA_GOV_RESOURCE = "9ef84268-d588-465a-a308-a864a43d0070";
+                <!-- Fuel cost used by the transport formula -->
+                <div>
+                    <label for="diesel">Diesel price (₹ per litre)</label>
+                    <input
+                        id="diesel"
+                        type="number"
+                        min="1"
+                        value="92"
+                        step="0.5"
+                    >
+                </div>
 
-// Sample market prices and transport estimates used in demo mode.
-const sampleMarkets = [
-  { name: "Pune Mandi", price: 2500, distance: 25, rate: 1.5 },
-  { name: "Nashik Mandi", price: 2800, distance: 180, rate: 1.2 },
-  { name: "Mumbai Mandi", price: 3000, distance: 150, rate: 1.8 },
-  { name: "Satara Mandi", price: 2600, distance: 110, rate: 1.3 }
-];
+                <!-- Maximum goods a truck can carry -->
+                <div>
+                    <label for="capacity">Truck load (quintals)</label>
+                    <input
+                        id="capacity"
+                        type="number"
+                        min="1"
+                        value="60"
+                    >
+                </div>
 
-// Format numeric values as Indian Rupee currency.
-const money = value => "₹" + Math.round(value).toLocaleString("en-IN");
+                <!-- Maximum number of days the farmer can wait -->
+                <div>
+                    <label for="maxWait">Most days you can wait (0–7)</label>
+                    <input
+                        id="maxWait"
+                        type="number"
+                        min="0"
+                        max="7"
+                        value="5"
+                    >
+                </div>
 
-// Get the API status message element.
-const statusEl = () => document.getElementById("apiStatus");
+                <!-- Higher risk caution gives more importance to uncertainty -->
+                <div>
+                    <label for="risk">
+                        Risk caution (0 = take chances, 1 = play safe)
+                    </label>
+                    <input
+                        id="risk"
+                        type="number"
+                        min="0"
+                        max="1"
+                        step="0.1"
+                        value="0.5"
+                    >
+                </div>
 
-// Calculate market revenue, expenses, and net returns.
-function showResults(rows, crop, quantity, otherCost, isLive) {
+                <!-- Rain increases estimated transport loss and uncertainty -->
+                <div>
+                    <label for="rain">Heavy rain expected on roads?</label>
+                    <select id="rain">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
 
-  // Calculate total additional costs for the selected quantity.
-  const otherTotal = quantity * otherCost;
+            </div>
 
-  // Calculate transport costs and net returns for each market.
-  const results = rows.map(row => {
-    const transport = row.distance != null
-      ? row.distance * row.rate * quantity
-      : 150 * quantity; // Estimated transport cost when distance is unavailable.
+            <!-- Optional live-data API key. Demo mode works without it. -->
+            <div class="api-key-box" style="margin-top:16px; max-width:620px;">
+                <label for="apiKey">Optional Data.gov.in API key (leave blank for demo mode)</label>
+                <input id="apiKey" type="password" autocomplete="off" placeholder="Paste your API key here (optional)" style="width:100%; margin-top:6px;">
+                <small style="display:block; color:var(--muted); margin-top:5px; line-height:1.5;">Your key is used only by this page during the request. Do not share this file with a key saved inside it.</small>
+            </div>
 
-    const revenue = row.price * quantity;
+            <!-- Runs the main calculation -->
+            <button class="search-button" onclick="calculate()">
+                🔍 Find Best Mandi
+            </button>
 
-    return {
-      ...row,
-      revenue,
-      transport,
-      otherTotal,
-      net: revenue - transport - otherTotal
-    };
+            <!-- Displays API status and calculation progress -->
+            <p id="apiStatus" class="note" role="status" aria-live="polite"></p>
 
-  // Sort markets from highest to lowest estimated net return.
-  }).sort((a, b) => b.net - a.net);
+            <!-- Displays data quality warnings -->
+            <ul id="warn"></ul>
+        </section>
 
-  // Select the market with the highest estimated net return.
-  const best = results[0];
+        <!-- ==============================
+             SUMMARY CARDS
+             JavaScript updates these values
+        =============================== -->
 
-  // Update the summary statistics.
-  document.getElementById("revenue").textContent = money(best.revenue);
-  document.getElementById("transport").textContent = money(best.transport);
-  document.getElementById("expenses").textContent = money(best.otherTotal);
-  document.getElementById("bestMandi").textContent = best.name;
+        <section class="stats">
 
-  // Generate the market comparison table dynamically.
-  document.getElementById("marketRows").innerHTML = results.map((item, index) => `
-    <tr class="${index === 0 ? "best" : ""}">
-      <td>${escapeHtml(item.name)}${index === 0 ? ' <span class="pill">BEST</span>' : ""}</td>
-      <td>${money(item.price)}</td>
-      <td>${money(item.transport)}</td>
-      <td>${money(item.otherTotal)}</td>
-      <td>${money(item.net)}</td>
-    </tr>`).join("");
+            <div class="stat green">
+                <small>💰 Best Estimated Revenue</small>
+                <h3 id="revenue">₹0</h3>
+                <p>After spoilage, before expenses</p>
+            </div>
 
-  // Find the maximum positive net return for chart scaling.
-  const maxNet = Math.max(1, ...results.map(item => Math.max(0, item.net)));
+            <div class="stat orange">
+                <small>🚚 Transport Cost</small>
+                <h3 id="transport">₹0</h3>
+                <p>Fuel + driver, round trip</p>
+            </div>
 
-  // Generate a comparison bar for every mandi.
-  document.getElementById("chart").innerHTML = results.map((item, index) => {
+            <div class="stat blue">
+                <small>📦 Other Costs</small>
+                <h3 id="expenses">₹0</h3>
+                <p>Incl. storage while waiting</p>
+            </div>
 
-    // Calculate each bar's width as a percentage.
-    const width = Math.max(0, Math.min(100, item.net / maxNet * 100));
+            <div class="stat purple">
+                <small>🏆 Best Mandi</small>
+                <h3 id="bestMandi">--</h3>
+                <p id="bestWhen">Highest risk-adjusted return</p>
+            </div>
 
-    return `<div class="bar-row ${index === 0 ? "best-bar" : ""}">
-      <span>${escapeHtml(item.name.replace(/ Mandi$/i, ""))}</span>
-      <div class="bar-track"><div class="bar" style="width:${width}%"></div></div>
-      <span class="bar-value">${money(item.net)}</span>
-    </div>`;
+            <div class="stat gold">
+                <small>🎯 Realization Score</small>
+                <h3 id="score">0</h3>
+                <p>Out of 100</p>
+            </div>
 
-  }).join("");
+        </section>
 
-  // Display the recommended mandi.
-  document.getElementById("recommendationTitle").textContent = "🏆 " + best.name;
+        <!-- ==============================
+             MARKET COMPARISON AND BAR CHART
+        =============================== -->
 
-  // Explain the estimated return and whether the price data is live.
-  document.getElementById("recommendationText").textContent =
-    `For ${quantity.toLocaleString("en-IN")} quintals of ${crop}, the highest estimated net return is ${money(best.net)}. ` +
-    (isLive
-      ? "The listed crop price came from the government market-price API."
-      : "This result uses illustrative sample prices, not live market data.");
+        <div class="results-grid">
 
-  // Display a summary of revenue and estimated expenses.
-  document.getElementById("dispatchText").textContent =
-    `Estimated revenue: ${money(best.revenue)} | Transport estimate: ${money(best.transport)} | Other costs: ${money(best.otherTotal)}. ` +
-    (best.date
-      ? `Price date: ${best.date}.`
-      : "Confirm today's price and transport cost before dispatch.");
-}
+            <section class="card" id="markets">
+                <h3>📊 Market Comparison</h3>
 
-// Escape special HTML characters before inserting market names into HTML.
-function escapeHtml(value) {
-  return String(value ?? "").replace(/[&<>"']/g, ch => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;"
-  })[ch]);
-}
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Mandi</th>
+                                <th>Sell on</th>
+                                <th>Distance</th>
+                                <th>Forecast ₹/q</th>
+                                <th>Transport</th>
+                                <th>Spoilage loss</th>
+                                <th>Other Costs</th>
+                                <th>Net Return</th>
+                                <th>Score</th>
+                            </tr>
+                        </thead>
 
-// Fetch live crop prices from the Government of India's API.
-async function fetchLivePrices(crop) {
+                        <!-- JavaScript inserts comparison rows here -->
+                        <tbody id="marketRows"></tbody>
+                    </table>
+                </div>
+            </section>
 
-  // Create the API request URL.
-  const url = new URL(`https://api.data.gov.in/resource/${DATA_GOV_RESOURCE}`);
+            <section class="card">
+                <h3>📈 Net Return Comparison</h3>
 
-  // Add API key, response format, record limit, and filters.
-  url.searchParams.set("api-key", DATA_GOV_API_KEY.trim());
-  url.searchParams.set("format", "json");
-  url.searchParams.set("limit", "100");
-  url.searchParams.set("filters[state]", "Maharashtra");
-  url.searchParams.set("filters[commodity]", crop);
+                <!-- JavaScript generates one bar per recommended market -->
+                <div class="chart" id="chart"></div>
+            </section>
 
-  // Send the request to the government API.
-  const response = await fetch(url.toString());
+        </div>
 
-  // Handle unsuccessful API responses.
-  if (!response.ok) {
-    throw new Error(`Government API returned HTTP ${response.status}.`);
-  }
+        <!-- Forecast chart is generated using SVG -->
+        <section class="card">
+            <h3>🔮 7-Day Price Forecast</h3>
+            <div id="fcChart"></div>
+        </section>
 
-  // Convert the API response into JSON.
-  const payload = await response.json();
+        <!-- ==============================
+             FINAL DISPATCH RECOMMENDATION
+        =============================== -->
 
-  // Read the returned market records.
-  const records = Array.isArray(payload.records) ? payload.records : [];
+        <section class="recommendation" id="recommendation">
+            <h3>🎯 Dispatch Recommendation</h3>
 
-  // Keep valid prices and convert records into the application's format.
-  return records.filter(r => Number(r.modal_price) > 0).map(r => ({
-    name: [r.market, r.district].filter(Boolean).join(" — ") || "Market not named",
-    price: Number(r.modal_price),
-    date: r.arrival_date || "",
-    distance: null,
-    rate: null
-  }));
-}
+            <h2 id="recommendationTitle">Calculating...</h2>
 
-// Main function: validates input and calculates the best mandi.
-async function calculate() {
+            <p id="recommendationText"></p>
+            <p id="dispatchText"></p>
 
-  // Read the selected crop, quantity, and other costs.
-  const crop = document.getElementById("crop").value;
-  const quantity = Number(document.getElementById("quantity").value);
-  const otherCost = Number(document.getElementById("otherCost").value);
-  const button = document.querySelector(".search-button");
+            <!-- Opens the browser's print dialog -->
+            <button onclick="window.print()">🖨️ Print Report</button>
+        </section>
 
-  // Validate quantity and additional costs before calculation.
-  if (!Number.isFinite(quantity) || quantity < 1 || quantity > 10000 ||
-      !Number.isFinite(otherCost) || otherCost < 0) {
-    alert("Enter a quantity from 1 to 10,000 and a non-negative other cost.");
-    return;
-  }
+        <!-- Important limitations of the demo -->
+        <p class="note">
+            ⚠️ Demo notice: price history is simulated (with gaps,
+            Sundays, holidays and a Pune glut). You can optionally enter
+            a Data.gov.in API key above to try overlaying available live prices. Road distance
+            is straight-line × 1.3. Verify prices and transport quotes
+            before dispatch. One destination is recommended; split loads
+            are not optimised.
+        </p>
 
-  // Disable the button while prices are being checked.
-  button.disabled = true;
-  statusEl().textContent = "Checking live mandi prices…";
+    </main>
 
-  try {
+    <!-- Website footer -->
+    <footer>
+        🌱 MandiMate — Helping Farmers Make Smarter Market Decisions
+        <br><br>
+        Built for a hackathon | Better Decisions, Better Returns
+    </footer>
 
-    // Request live prices if an API key has been configured.
-    if (DATA_GOV_API_KEY && !DATA_GOV_API_KEY.includes("PASTE_YOUR")) {
+    <script>
+        /* ==========================================
+           1. API CONFIGURATION
+           Data.gov.in can provide real market prices.
+           Replace the placeholder with your API key.
+        ========================================== */
 
-      const liveRows = await fetchLivePrices(crop);
+        // API key is entered by the user in the page; no key is stored in this file.
+        const DATA_GOV_RESOURCE =
+            "9ef84268-d588-465a-a308-a864a43d0070";
 
-      // Display live prices when valid records are available.
-      if (liveRows.length) {
-        showResults(liveRows, crop, quantity, otherCost, true);
 
-        statusEl().textContent =
-          `Live API connected: ${liveRows.length} records received for ${crop}. Transport is still an estimate.`;
+        /* ==========================================
+           2. MARKET AND CROP DATA
+        ========================================== */
 
-      } else {
+        // Approximate latitude and longitude of each mandi.
+        // These are used to estimate straight-line distance.
+        const MK = {
+            Pune: [18.52, 73.86],
+            Nashik: [19.99, 73.79],
+            Mumbai: [19.08, 72.88],
+            Satara: [17.68, 74.0],
+            Ahmednagar: [19.09, 74.74]
+        };
 
-        // Use sample prices if the API returns no matching records.
-        showResults(sampleMarkets, crop, quantity, otherCost, false);
+        // Demo crop parameters:
+        // base  = base price per quintal
+        // vol   = simulated price volatility
+        // decay = estimated spoilage rate
+        // bulk  = crop-specific transport damage factor
+        const CROP = {
+            Tomato: {
+                base: 1500,
+                vol: 0.045,
+                decay: 0.03,
+                bulk: 1.6
+            },
 
-        statusEl().textContent =
-          `No live records found for ${crop}; showing clearly labelled demo data instead.`;
-      }
+            Onion: {
+                base: 1800,
+                vol: 0.018,
+                decay: 0.004,
+                bulk: 1
+            },
 
-    } else {
+            Potato: {
+                base: 1400,
+                vol: 0.012,
+                decay: 0.006,
+                bulk: 1
+            },
 
-      // Use sample prices when no API key has been configured.
-      showResults(sampleMarkets, crop, quantity, otherCost, false);
+            Wheat: {
+                base: 2400,
+                vol: 0.008,
+                decay: 0.0008,
+                bulk: 1
+            }
+        };
 
-      statusEl().textContent =
-        "Demo mode: add your Data.gov.in API key in DATA_GOV_API_KEY at the top of the script to request live prices.";
-    }
+        // Example local holidays, forecast horizon and history length.
+        const HOLIDAYS = ["2026-11-08", "2026-11-10"];
+        const H = 7;
+        const N = 90;
 
-  } catch (error) {
 
-    // Keep the website working if the live API request fails.
-    showResults(sampleMarkets, crop, quantity, otherCost, false);
-    statusEl().textContent = `Live API unavailable (${error.message}). Showing demo prices so the page still works.`;
-  } finally {
-    // Re-enable the search button after the request finishes.
-    button.disabled = false;
-  }
-}
+        /* ==========================================
+           3. HELPER FUNCTIONS
+           Small reusable functions used throughout.
+        ========================================== */
 
-// Display initial sample results when the page first opens.
-calculate();
-</script>
+        // Formats a number as Indian currency.
+        const money = value =>
+            "₹" + Math.round(value).toLocaleString("en-IN");
+
+        // Short form for accessing an HTML element by its ID.
+        const $ = id => document.getElementById(id);
+
+        // Escapes special characters before inserting names into HTML.
+        const esc = value =>
+            String(value ?? "").replace(/[&<>"']/g, character => ({
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                '"': "&quot;",
+                "'": "&#39;"
+            })[character]);
+
+        // Stores today's date at midday to reduce date-boundary issues.
+        const TODAY = new Date();
+        TODAY.setHours(12, 0, 0, 0);
+
+        // Returns a new date shifted by a specified number of days.
+        const addDays = (date, days) => {
+            const result = new Date(date);
+            result.setDate(result.getDate() + days);
+            return result;
+        };
+
+        // Converts a date into YYYY-MM-DD format.
+        const iso = date =>
+            `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+
+        // Treats Sundays and configured holidays as market closures.
+        const isClosed = date =>
+            date.getDay() === 0 || HOLIDAYS.includes(iso(date));
+
+        // Formats dates for display.
+        const fmtDate = date =>
+            date.toLocaleDateString("en-IN", {
+                weekday: "short",
+                day: "numeric",
+                month: "short"
+            });
+
+
+        /* ==========================================
+           4. STATISTICAL HELPER FUNCTIONS
+        ========================================== */
+
+        // Creates a repeatable pseudo-random number generator.
+        // This makes the simulated dataset reproducible.
+        function rngFor(seed) {
+            let a = seed >>> 0;
+
+            return () => {
+                a += 0x6D2B79F5;
+
+                let t = a;
+                t = Math.imul(t ^ (t >>> 15), t | 1);
+                t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+
+                return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+            };
+        }
+
+        // Generates a normally distributed random value.
+        const gauss = random =>
+            Math.sqrt(-2 * Math.log(random() + 1e-12)) *
+            Math.cos(2 * Math.PI * random());
+
+        // Calculates the average of an array.
+        const mean = values =>
+            values.reduce((sum, value) => sum + value, 0) /
+            values.length;
+
+        // Calculates population standard deviation.
+        const std = values => {
+            const average = mean(values);
+
+            return Math.sqrt(
+                mean(values.map(value => (value - average) ** 2))
+            );
+        };
+
+        // Finds the middle value in a sorted array.
+        const median = values => {
+            const sorted = [...values].sort((a, b) => a - b);
+            const middle = sorted.length >> 1;
+
+            return sorted.length % 2
+                ? sorted[middle]
+                : (sorted[middle - 1] + sorted[middle]) / 2;
+        };
+
+        // Finds an approximate quantile, such as the 90th percentile.
+        const quantile = (values, q) =>
+            [...values].sort((a, b) => a - b)[
+                Math.floor(q * (values.length - 1))
+            ];
+
+
+        /* ==========================================
+           5. GENERATE SIMULATED PRICE HISTORY
+           Creates 90 days of demo data for each mandi.
+        ========================================== */
+
+        function loadRaw(crop) {
+            const cropData = CROP[crop];
+
+            // Seed depends on the crop name.
+            const random = rngFor(
+                [...crop].reduce(
+                    (sum, character) =>
+                        sum * 31 + character.charCodeAt(0),
+                    7
+                )
+            );
+
+            // Shared price movement across all markets.
+            const common = [];
+            let commonShift = 0;
+
+            for (let t = 0; t < N; t++) {
+                commonShift +=
+                    gauss(random) * cropData.vol * 0.6;
+
+                common.push(commonShift);
+            }
+
+            const output = {};
+
+            Object.keys(MK).forEach((market, index) => {
+                let localShift = 0;
+
+                const adjustment =
+                    1 + 0.05 * (index - 2) / 2 *
+                    (index % 2 ? 1 : -1);
+
+                output[market] = Array.from(
+                    { length: N },
+                    (_, t) => {
+
+                        // Market-specific random price movement.
+                        localShift =
+                            0.8 * localShift +
+                            gauss(random) * cropData.vol;
+
+                        let price =
+                            cropData.base *
+                            Math.exp(common[t] + localShift) *
+                            adjustment;
+
+                        // Simulates a temporary tomato glut in Pune.
+                        if (market === "Pune" && t >= N - 12) {
+                            price *=
+                                1 - 0.28 * (t - (N - 12)) / 11;
+                        }
+
+                        // Simulates supply disruption in Nashik.
+                        if (market === "Nashik" && t >= N - 6) {
+                            price *=
+                                1 + 0.10 * (t - (N - 6)) / 5;
+                        }
+
+                        // Simulates occasional incorrect price entries.
+                        if (random() < 0.015) {
+                            price *= 1.8;
+                        }
+
+                        const date = addDays(
+                            TODAY,
+                            t - (N - 1)
+                        );
+
+                        // Closed days and missing reports become null.
+                        return (
+                            isClosed(date) || random() < 0.08
+                        ) ? null : price;
+                    }
+                );
+            });
+
+            return output;
+        }
+
+
+        /* ==========================================
+           6. CLEAN PRICE DATA
+           Removes unusual spikes and fills missing values.
+        ========================================== */
+
+        function clean(values) {
+
+            // Percentage of the last 14 days with reported prices.
+            const quality =
+                values.slice(-14).filter(v => v != null).length / 14;
+
+            const known = values
+                .map((value, index) => [value, index])
+                .filter(item => item[0] != null);
+
+            // Detects unusually large deviations from nearby values.
+            const keep = new Set(
+                known.filter(([value, index]) => {
+
+                    const window = known
+                        .filter(([, position]) =>
+                            Math.abs(position - index) <= 6
+                        )
+                        .map(item => item[0]);
+
+                    const localMedian = median(window);
+
+                    const mad =
+                        median(
+                            window.map(item =>
+                                Math.abs(item - localMedian)
+                            )
+                        ) + 0.01 * localMedian;
+
+                    return Math.abs(value - localMedian) <
+                        5 * 1.48 * mad;
+
+                }).map(item => item[1])
+            );
+
+            const points = known.filter(
+                ([, index]) => keep.has(index)
+            );
+
+            // Fills gaps using linear interpolation between known prices.
+            const smoothed = values.map((_, index) => {
+                let lower = null;
+                let upper = null;
+
+                for (const point of points) {
+                    if (point[1] <= index) {
+                        lower = point;
+                    }
+
+                    if (point[1] >= index && !upper) {
+                        upper = point;
+                    }
+                }
+
+                if (lower && upper) {
+                    return lower[1] === upper[1]
+                        ? lower[0]
+                        : lower[0] +
+                          (upper[0] - lower[0]) *
+                          (index - lower[1]) /
+                          (upper[1] - lower[1]);
+                }
+
+                return (lower || upper)[0];
+            });
+
+            return {
+                s: smoothed,
+                quality
+            };
+        }
+
+
+        /* ==========================================
+           7. FORECAST PRICES FOR THE NEXT 7 DAYS
+           Uses a damped trend and mean reversion.
+        ========================================== */
+
+        function forecast(values, quality, regionalMean, rain) {
+
+            // Log transformation helps model positive prices.
+            const y = values.map(Math.log);
+
+            const alpha = 0.4;
+            const beta = 0.12;
+            const phi = 0.85;
+
+            let level = y[0];
+            let trend = 0;
+
+            const errors = [];
+
+            // Updates the estimated price level and trend.
+            for (let t = 1; t < y.length; t++) {
+                const prediction = level + phi * trend;
+
+                errors.push(y[t] - prediction);
+
+                const newLevel =
+                    alpha * y[t] +
+                    (1 - alpha) * prediction;
+
+                trend =
+                    beta * (newLevel - level) +
+                    (1 - beta) * phi * trend;
+
+                level = newLevel;
+            }
+
+            // Estimate forecast uncertainty from recent errors.
+            const sigma = Math.max(
+                std(errors.slice(-45)),
+                0.008
+            );
+
+            // Regional average reduces excessive market-specific movement.
+            const target =
+                0.5 * mean(y.slice(-60)) +
+                0.5 * regionalMean;
+
+            const prices = [];
+            const uncertainty = [];
+
+            let accumulatedTrend = 0;
+
+            for (let day = 0; day <= H; day++) {
+
+                if (day > 0) {
+                    accumulatedTrend += phi ** day;
+                }
+
+                // Increasing mean reversion at longer forecast horizons.
+                const reversion = Math.min(0.5, 0.06 * day);
+
+                const predictedPrice = Math.exp(
+                    (1 - reversion) *
+                    (level + accumulatedTrend * trend) +
+                    reversion * target
+                );
+
+                prices.push(predictedPrice);
+
+                // Uncertainty increases with time, missing data and rain.
+                uncertainty.push(
+                    sigma *
+                    Math.sqrt(Math.max(day, 0.5)) *
+                    (1 + (1 - quality)) *
+                    (rain ? 1.4 : 1)
+                );
+            }
+
+            return {
+                p: prices,
+                sg: uncertainty
+            };
+        }
+
+
+        /* ==========================================
+           8. DISTANCE CALCULATION
+           Haversine formula estimates straight-line distance.
+        ========================================== */
+
+        const hav = (a, b) => {
+            const radians = Math.PI / 180;
+
+            const latitudeDifference =
+                (b[0] - a[0]) * radians;
+
+            const longitudeDifference =
+                (b[1] - a[1]) * radians;
+
+            const x =
+                Math.sin(latitudeDifference / 2) ** 2 +
+                Math.cos(a[0] * radians) *
+                Math.cos(b[0] * radians) *
+                Math.sin(longitudeDifference / 2) ** 2;
+
+            // Earth's approximate diameter is 12,742 kilometres.
+            return 12742 * Math.asin(Math.sqrt(x));
+        };
+
+
+        /* ==========================================
+           9. MARKET OPTIMIZATION
+           Compares each mandi and possible waiting period.
+        ========================================== */
+
+        function optimise(input, raw) {
+
+            const cropData = CROP[input.crop];
+            const cleaned = {};
+            const quality = {};
+
+            // Clean every market's price history.
+            Object.keys(MK).forEach(market => {
+                const result = clean(raw[market]);
+
+                cleaned[market] = result.s;
+                quality[market] = result.quality;
+            });
+
+            // Regional price average used by the forecasting function.
+            const regionalMean = mean(
+                Object.keys(MK).map(market =>
+                    mean(
+                        cleaned[market]
+                            .slice(-30)
+                            .map(Math.log)
+                    )
+                )
+            );
+
+            // Forecast prices for all markets.
+            const forecasts = {};
+
+            Object.keys(MK).forEach(market => {
+                forecasts[market] = forecast(
+                    cleaned[market],
+                    quality[market],
+                    regionalMean,
+                    input.rain
+                );
+            });
+
+            const options = [];
+
+            // Test each mandi and each permitted waiting period.
+            for (const market of Object.keys(MK)) {
+
+                // Adds an approximate road-distance factor and local access.
+                const distance = market === input.home
+                    ? 12
+                    : 1.3 * hav(
+                        MK[input.home],
+                        MK[market]
+                    ) + 12;
+
+                // Approximate travel time in hours.
+                const hours = distance / 32 + 0.5;
+
+                for (
+                    let wait = 0;
+                    wait <= input.maxWait;
+                    wait++
+                ) {
+                    let saleDate = addDays(
+                        TODAY,
+                        wait + (hours > 14 ? 1 : 0)
+                    );
+
+                    // Move the sale date to the next open market day.
+                    while (isClosed(saleDate)) {
+                        saleDate = addDays(saleDate, 1);
+                    }
+
+                    const heldDays = Math.round(
+                        (saleDate - TODAY) / 864e5
+                    );
+
+                    const horizon = Math.min(heldDays, H);
+
+                    // Tomatoes are treated as more vulnerable in transit.
+                    const heat =
+                        input.crop === "Tomato" && hours > 5
+                            ? 1.5
+                            : 1;
+
+                    // Estimated percentage lost through spoilage.
+                    const spoilage =
+                        1 - Math.exp(
+                            -cropData.decay *
+                            (heldDays + hours / 24 * 2 * heat)
+                        );
+
+                    // Estimated transport damage percentage.
+                    const transitLoss = Math.min(
+                        0.2,
+                        (0.004 +
+                            0.0012 * hours * cropData.bulk) *
+                            (input.rain ? 2 : 1)
+                    );
+
+                    const price =
+                        forecasts[market].p[horizon];
+
+                    // Quantity remaining after spoilage and transit loss.
+                    const sellableQuantity =
+                        input.qty *
+                        (1 - spoilage) *
+                        (1 - transitLoss);
+
+                    // Estimated revenue after product losses.
+                    const gross = sellableQuantity * price;
+
+                    // Estimates the number of round-trip truck journeys.
+                    const trips = Math.ceil(
+                        input.qty / input.capacity
+                    );
+
+                    // Fuel is estimated at 6 km per litre.
+                    // The additional 7 is an illustrative driver/wear cost
+                    // per kilometre; this is a demo assumption.
+                    const transport =
+                        trips *
+                        2 *
+                        distance *
+                        (input.diesel / 6 + 7);
+
+                    // Other costs include user costs and waiting costs.
+                    const other =
+                        input.qty * (input.otherCost + 3 * wait);
+
+                    // Net return after estimated expenses.
+                    const net = gross - transport - other;
+
+                    // Penalizes uncertain forecasts according to risk setting.
+                    const riskAdjustedNet =
+                        net -
+                        input.risk *
+                        gross *
+                        forecasts[market].sg[horizon];
+
+                    options.push({
+                        m: market,
+                        w: wait,
+                        sale: saleDate,
+                        dist: distance,
+                        price,
+                        transport,
+                        other,
+                        gross,
+                        net,
+                        riskNet: riskAdjustedNet,
+                        spoilLoss: input.qty * price - gross,
+                        spoilPct: spoilage * 100
+                    });
+                }
+            }
+
+            // Reference amount used to scale the score.
+            const reference =
+                mean(
+                    Object.keys(MK).map(market =>
+                        quantile(
+                            cleaned[market].slice(-30),
+                            0.9
+                        )
+                    )
+                ) * input.qty;
+
+            // Scores range from 0 to 100.
+            options.forEach(option => {
+                option.score = Math.max(
+                    0,
+                    Math.min(
+                        100,
+                        100 * option.riskNet / reference
+                    )
+                );
+            });
+
+            // Highest risk-adjusted return comes first.
+            options.sort(
+                (a, b) => b.riskNet - a.riskNet
+            );
+
+            return {
+                opts: options,
+                fc: forecasts,
+                cl: cleaned,
+                qual: quality
+            };
+        }
+
+
+        /* ==========================================
+           10. DISPLAY RESULTS
+           Updates cards, table, charts and recommendation.
+        ========================================== */
+
+        function show(input, result, live) {
+
+            const {
+                opts,
+                fc,
+                cl,
+                qual
+            } = result;
+
+            const best = opts[0];
+
+            // Local option for selling immediately.
+            const base = opts.find(
+                option =>
+                    option.m === input.home &&
+                    option.w === 0
+            );
+
+            const gain = best.net - base.net;
+
+            // Select the best option for each market.
+            const top = [];
+
+            opts.forEach(option => {
+                if (
+                    top.length < 8 &&
+                    !top.some(item => item.m === option.m)
+                ) {
+                    top.push(option);
+                }
+            });
+
+            // Include the local sell-now option if it is not already listed.
+            const rows = top
+                .concat(top.includes(base) ? [] : [base])
+                .sort((a, b) => b.riskNet - a.riskNet);
+
+
+            /* Update the five summary cards */
+
+            $("revenue").textContent = money(best.gross);
+            $("transport").textContent = money(best.transport);
+            $("expenses").textContent = money(best.other);
+            $("bestMandi").textContent = best.m;
+
+            $("bestWhen").textContent = best.w
+                ? `Sell ${fmtDate(best.sale)} (+${best.w}d)`
+                : "Dispatch today";
+
+            $("score").textContent = best.score.toFixed(1);
+
+
+            /* Generate the market comparison table */
+
+            $("marketRows").innerHTML = rows.map(option => `
+                <tr class="${option === best ? "best" : ""}">
+                    <td>
+                        ${esc(option.m)}
+                        ${option === best
+                            ? ' <span class="pill">BEST</span>'
+                            : ""}
+                        ${option === base && option !== best
+                            ? ' <span class="pill">SELL NOW LOCALLY</span>'
+                            : ""}
+                    </td>
+
+                    <td>${fmtDate(option.sale)}</td>
+                    <td>${Math.round(option.dist)} km</td>
+                    <td>${money(option.price)}</td>
+                    <td>${money(option.transport)}</td>
+                    <td>
+                        ${money(option.spoilLoss)}
+                        (${option.spoilPct.toFixed(1)}%)
+                    </td>
+                    <td>${money(option.other)}</td>
+                    <td>${money(option.net)}</td>
+                    <td>${option.score.toFixed(1)}</td>
+                </tr>
+            `).join("");
+
+
+            /* Generate the net return bar chart */
+
+            const maxNet = Math.max(
+                1,
+                ...rows.map(option => Math.max(0, option.net))
+            );
+
+            $("chart").innerHTML = rows.map(option => `
+                <div class="bar-row ${
+                    option === best ? "best-bar" : ""
+                }">
+                    <span>${esc(option.m)}</span>
+
+                    <div class="bar-track">
+                        <div
+                            class="bar"
+                            style="width:${
+                                Math.max(
+                                    0,
+                                    option.net / maxNet * 100
+                                )
+                            }%"
+                        ></div>
+                    </div>
+
+                    <span class="bar-value">
+                        ${money(option.net)}
+                    </span>
+                </div>
+            `).join("");
+
+
+            /* Generate the 7-day forecast SVG chart */
+
+            // Compare the home mandi with the recommended mandi.
+            const names = [
+                ...new Set([input.home, best.m])
+            ];
+
+            const colors = ["#a8402c", "#176b45"];
+
+            const width = 640;
+            const height = 230;
+            const padding = 34;
+
+            // Combines recent history and forecasts to set chart bounds.
+            const allValues = names.flatMap(name => [
+                ...cl[name].slice(-14),
+                ...fc[name].p
+            ]);
+
+            const low = Math.min(...allValues) * 0.97;
+            const high = Math.max(...allValues) * 1.03;
+
+            const totalPoints = 14 + H;
+
+            // Converts a data index into an SVG horizontal coordinate.
+            const x = index =>
+                padding +
+                index * (width - padding - 10) /
+                (totalPoints - 1);
+
+            // Converts a price into an SVG vertical coordinate.
+            const y = value =>
+                height - padding -
+                (value - low) / (high - low) *
+                (height - 2 * padding);
+
+            // Creates an SVG line for a series of prices.
+            const polyline = (
+                values,
+                offset,
+                dashed,
+                color
+            ) => `
+                <polyline
+                    fill="none"
+                    stroke="${color}"
+                    stroke-width="2"
+                    ${dashed ? 'stroke-dasharray="5 4"' : ""}
+                    points="${
+                        values.map((value, index) =>
+                            `${x(index + offset)},${y(value)}`
+                        ).join(" ")
+                    }"
+                />
+            `;
+
+            $("fcChart").innerHTML = `
+                <svg
+                    viewBox="0 0 ${width} ${height}"
+                    width="100%"
+                    role="img"
+                    aria-label="Price history and forecast"
+                >
+                    <text x="4" y="14">₹/q</text>
+
+                    <line
+                        x1="${x(13)}"
+                        x2="${x(13)}"
+                        y1="20"
+                        y2="${height - padding}"
+                        stroke="#dce9df"
+                    />
+
+                    <text x="${x(13) + 4}" y="24">today</text>
+
+                    <text x="${padding}" y="${height - 10}">
+                        14 days ago
+                    </text>
+
+                    <text x="${width - 60}" y="${height - 10}">
+                        +7 days
+                    </text>
+
+                    ${
+                        names.map((name, index) =>
+                            polyline(
+                                cl[name].slice(-14),
+                                0,
+                                false,
+                                colors[index]
+                            ) +
+                            polyline(
+                                fc[name].p,
+                                13,
+                                true,
+                                colors[index]
+                            )
+                        ).join("")
+                    }
+                </svg>
+
+                <div class="legend">
+                    ${
+                        names.map((name, index) => `
+                            <span>
+                                <i style="background:${colors[index]}"></i>
+                                ${esc(name)}
+                                (${Math.round(qual[name] * 100)}% days reported)
+                            </span>
+                        `).join("")
+                    }
+
+                    <span>Dashed = forecast</span>
+                </div>
+            `;
+
+
+            /* Create the dispatch recommendation */
+
+            const verdict =
+                best === base ||
+                gain < 0.03 * Math.abs(base.net)
+                    ? `Sell now at ${input.home}`
+                    : best.m === input.home
+                        ? `Hold at ${input.home} for ${best.w} day(s), then sell`
+                        : `Dispatch to ${best.m}${
+                            best.w
+                                ? ` in ${best.w} day(s)`
+                                : " today"
+                        }`;
+
+            $("recommendationTitle").textContent =
+                "🏆 " + verdict;
+
+            $("recommendationText").textContent =
+                `For ${input.qty.toLocaleString("en-IN")} quintals of ` +
+                `${input.crop}, the best risk-adjusted option nets ` +
+                `${money(best.net)}` +
+                (
+                    gain > 0
+                        ? `, ${money(gain)} more than selling now at ${input.home}.`
+                        : `, the same as selling now at ${input.home}.`
+                ) +
+                (
+                    input.rain
+                        ? " Rain is expected, so transit loss and forecast uncertainty are increased."
+                        : ""
+                );
+
+            $("dispatchText").textContent =
+                `Sale date: ${fmtDate(best.sale)} | ` +
+                `${Math.round(best.dist)} km | ` +
+                `Spoilage ${best.spoilPct.toFixed(1)}% | ` +
+                `Confidence uses ${
+                    live ? "live-overlaid" : "simulated"
+                } price history.`;
+
+
+            /* Show warnings for markets with sparse data */
+
+            $("warn").innerHTML = Object.keys(qual)
+                .filter(market => qual[market] < 0.6)
+                .map(market => `
+                    <li class="warn">
+                        ${esc(market)}: only ${
+                            Math.round(qual[market] * 100)
+                        }% of the last 14 days were reported,
+                        so its forecast band is wider.
+                    </li>
+                `)
+                .join("");
+        }
+
+
+        /* ==========================================
+           11. CONNECT TO DATA.GOV.IN API
+           Attempts to overlay today's real market prices.
+           Historical prices remain simulated in this demo.
+        ========================================== */
+
+        async function overlayLive(raw, crop, apiKey) {
+
+            // Builds the API request URL.
+            const url = new URL(
+                `https://api.data.gov.in/resource/${DATA_GOV_RESOURCE}`
+            );
+
+            url.searchParams.set("api-key", apiKey.trim());
+
+            url.searchParams.set("format", "json");
+            url.searchParams.set("limit", "200");
+
+            // Filters results to Maharashtra and the selected crop.
+            url.searchParams.set(
+                "filters[state]",
+                "Maharashtra"
+            );
+
+            url.searchParams.set(
+                "filters[commodity]",
+                crop
+            );
+
+            // Sends the request to the API.
+            const response = await fetch(url);
+
+            // Stop if the server returns an HTTP error.
+            if (!response.ok) {
+                throw new Error("HTTP " + response.status);
+            }
+
+            // Reads the JSON response and extracts market records.
+            const records =
+                (await response.json()).records || [];
+
+            let updated = 0;
+
+            // Uses a matching market record when one is available.
+            Object.keys(MK).forEach(market => {
+                const record = records.find(item =>
+                    (item.market || "")
+                        .toLowerCase()
+                        .includes(market.toLowerCase()) &&
+                    +item.modal_price > 0
+                );
+
+                if (record) {
+                    raw[market][N - 1] =
+                        +record.modal_price;
+
+                    updated++;
+                }
+            });
+
+            // Returns the number of markets with updated prices.
+            return updated;
+        }
+
+
+        /* ==========================================
+           12. MAIN CALCULATION FUNCTION
+           Called when the user clicks Find Best Mandi.
+        ========================================== */
+
+        async function calculate() {
+
+            // Reads user-entered values from the form.
+            const input = {
+                crop: $("crop").value,
+                qty: +$("quantity").value,
+                otherCost: +$("otherCost").value,
+                home: $("homeMarket").value,
+                diesel: +$("diesel").value,
+                capacity: +$("capacity").value,
+                maxWait: Math.round(+$("maxWait").value),
+                risk: +$("risk").value,
+                rain: $("rain").value === "1"
+            };
+
+            // Validates key numeric inputs before calculation.
+            if (
+                ![
+                    input.qty,
+                    input.otherCost,
+                    input.diesel,
+                    input.capacity
+                ].every(Number.isFinite) ||
+
+                input.qty < 1 ||
+                input.qty > 10000 ||
+                input.otherCost < 0 ||
+                input.diesel <= 0 ||
+                input.capacity < 1 ||
+
+                !(input.maxWait >= 0 && input.maxWait <= 7) ||
+                !(input.risk >= 0 && input.risk <= 1)
+            ) {
+                alert(
+                    "Check your inputs: quantity 1–10,000, " +
+                    "wait 0–7 days, risk 0–1. " +
+                    "Diesel price must be greater than zero."
+                );
+
+                return;
+            }
+
+            // Prevents repeated clicks while calculation is running.
+            const button = document.querySelector(".search-button");
+            button.disabled = true;
+
+            // Creates a new demo dataset for the selected crop.
+            const raw = loadRaw(input.crop);
+
+            let live = false;
+
+            $("apiStatus").textContent =
+                "Working out the best option…";
+
+            try {
+
+                // Live API is optional. The app always works in demo mode without a key.
+                const apiKey = $("apiKey").value.trim();
+                if (apiKey) {
+
+                    const updated = await overlayLive(
+                        raw,
+                        input.crop,
+                        apiKey
+                    );
+
+                    live = updated > 0;
+
+                    $("apiStatus").textContent = updated
+                        ? `Live prices applied for ${updated} mandi(s); history before today is simulated.`
+                        : "No live records found; using simulated prices.";
+
+                } else {
+
+                    // The website still works without an API key.
+                    $("apiStatus").textContent =
+                        "Demo mode: simulated price history with gaps, holidays and a Pune glut. Add a Data.gov.in API key above to try live price overlay.";
+                }
+
+            } catch (error) {
+
+                // A failed API request does not stop the demo.
+                $("apiStatus").textContent =
+                    `Live API unavailable (${error.message}); using simulated prices.`;
+            }
+
+            // Calculate market options and display the results.
+            try {
+                const results = optimise(input, raw);
+                show(input, results, live);
+            } catch (error) {
+                console.error("MandiMate calculation failed:", error);
+                $("apiStatus").textContent =
+                    "Calculation error. Please check the entered values and try again.";
+            } finally {
+                // Keep the page usable even if an unexpected error occurs.
+                button.disabled = false;
+            }
+        }
+
+
+        /* ==========================================
+           13. INITIALIZE THE WEBSITE
+           Populates the mandi list and runs a first demo.
+        ========================================== */
+
+        // Creates one dropdown option for each configured mandi.
+        $("homeMarket").innerHTML = Object.keys(MK)
+            .map(market => `<option>${esc(market)}</option>`)
+            .join("");
+
+        // Displays sample results when the page first loads.
+        calculate();
+
+    </script>
 
 </body>
 </html>
